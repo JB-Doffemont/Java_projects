@@ -1,13 +1,13 @@
 package com.practice.designpattern.pizza;
 
-public class Pizza implements PizzaInterface{
+public class Pizza implements PizzaInterface {
 
 	private String nom;
 	private String pate;
 	private String sauce;
 	private String garniture;
 	private int prix;
-	
+
 	public Pizza(String nom, String pate, String sauce, String garniture, int prix) {
 		super();
 		this.nom = nom;
@@ -16,13 +16,13 @@ public class Pizza implements PizzaInterface{
 		this.garniture = garniture;
 		this.prix = prix;
 	}
-	
+
 	public void cuire() {
-		
+
 	}
-	
+
 	public void prepare() {
-		
+
 	}
 
 	public String getNom() {
@@ -64,5 +64,5 @@ public class Pizza implements PizzaInterface{
 	public void setPrix(int prix) {
 		this.prix = prix;
 	}
-	
+
 }
