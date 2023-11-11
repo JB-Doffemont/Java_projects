@@ -23,11 +23,12 @@ public class CommandeManager {
 		return commandes;
 	}
 
-	public void ajouterCommande(Commande nouvelleCommande) {
+	public List<Commande> ajouterCommande(Commande nouvelleCommande) {
 		commandes.add(nouvelleCommande);
+		return commandes;
 	}
 
-	public void imprimerListeCommandes(List<Commande> commandes) {
+	public void imprimerListeCommandes() {
 	        for (Commande commande : commandes) {
 	            System.out.println("Numéro de commande : " + commande.getNumero());
 	            System.out.println("Type de pizza : " + commande.getTypePizza());

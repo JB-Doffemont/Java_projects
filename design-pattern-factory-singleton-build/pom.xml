@@ -5,4 +5,14 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>Design pattern</name>
   <description>Praticing design pattern</description>
+  	<dependencies>
+		<dependency>
+    		<artifactId>junit-jupiter-api</artifactId>
+    		<version>5.8.1</version>
+    		<scope>test</scope>
+   			<groupId>org.junit.jupiter</groupId>
+			</dependency>
+	</dependencies>
 </project>
+
+
