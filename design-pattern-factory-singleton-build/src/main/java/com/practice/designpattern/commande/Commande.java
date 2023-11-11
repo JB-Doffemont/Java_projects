@@ -15,7 +15,7 @@ public class Commande {
 		this.adresseLivraison = adresseLivraison;
 		this.etat = etat;
 	}
-
+	
 	public int getNumero() {
 		return numero;
 	}

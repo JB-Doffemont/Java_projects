@@ -11,6 +11,9 @@ public class CommandeManagerTest {
    
     @Test
     void testSingleInstance() {
+    	/* Test pour vérifier que commandeManager a crée une seule instance
+    	 *  et que les deux instances pointent vers la même référence
+    	 */
     	CommandeManager commandeManager = CommandeManager.getinstance();
     	CommandeManager commandeManager1 = CommandeManager.getinstance();
     	
@@ -36,6 +39,10 @@ public class CommandeManagerTest {
         
         // Test modification d'une commande
         commandeManager.modifierCommande(183, "Chorizo", 4, "2 boulevard du médecin", "En cours de livraison");
+        commandeManager.imprimerListeCommandes();
+        
+        // Test pour supprimer une commande 
+        commandeManager.supprimerCommande(183);
         commandeManager.imprimerListeCommandes();
     }
 }

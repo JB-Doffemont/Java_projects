@@ -36,6 +36,19 @@ public class CommandeManager {
 				commande.setAdresseLivraison(adresseLivraison);
 				commande.setQuantite(quantite);
 				commande.setEtat(etat);
+				System.out.println("Commande modifiée !");
+				System.out.println("");
+				break;
+			}
+		}
+	}
+	
+	public void supprimerCommande(int numeroCommande) {
+		for (Commande commande : commandes) {
+			if (commande.getNumero() == numeroCommande) {
+				commandes.remove(commande);
+				System.out.println("Commande supprimée !");
+				System.out.println("");
 				break;
 			}
 		}
