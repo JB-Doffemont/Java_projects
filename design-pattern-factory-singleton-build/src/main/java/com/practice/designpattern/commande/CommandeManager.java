@@ -1,6 +1,8 @@
 package com.practice.designpattern.commande;
 
 import java.util.*;
+import com.practice.designpattern.commande.Commande;
+
 
 public class CommandeManager {
 
@@ -23,9 +25,20 @@ public class CommandeManager {
 		return commandes;
 	}
 
-	public List<Commande> ajouterCommande(Commande nouvelleCommande) {
+	public void ajouterCommande(Commande nouvelleCommande) {
 		commandes.add(nouvelleCommande);
-		return commandes;
+	}
+	
+	public void modifierCommande(int numeroCommande, String typePizza, int quantite, String adresseLivraison, String etat) {
+		for (Commande commande : commandes) {
+			if (commande.getNumero() == numeroCommande) {
+				commande.setTypePizza(typePizza);
+				commande.setAdresseLivraison(adresseLivraison);
+				commande.setQuantite(quantite);
+				commande.setEtat(etat);
+				break;
+			}
+		}
 	}
 
 	public void imprimerListeCommandes() {

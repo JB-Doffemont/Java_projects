@@ -26,11 +26,16 @@ public class CommandeManagerTest {
     
     @Test
     void testCommandeManagement() {
+    	// Test ajout de nouvelles commandes
         CommandeManager commandeManager = CommandeManager.getinstance();
         Commande nouvelleCommande = new Commande(182, "Fromage", 1, "3 rue de la pizza", "En cours de livraison");
         Commande nouvelleCommande1 = new Commande(183, "Vegetarienne", 1, "2 boulevard du médecin", "En cours de livraison");
         commandeManager.ajouterCommande(nouvelleCommande);
         commandeManager.ajouterCommande(nouvelleCommande1);
+        commandeManager.imprimerListeCommandes();
+        
+        // Test modification d'une commande
+        commandeManager.modifierCommande(183, "Chorizo", 4, "2 boulevard du médecin", "En cours de livraison");
         commandeManager.imprimerListeCommandes();
     }
 }
