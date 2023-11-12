@@ -2,106 +2,112 @@ package com.practice.designpattern.pizza;
 
 public class Pizza implements PizzaInterface {
 
-    private String nom;
-    private String pate;
-    private String sauce;
-    private String garniture;
-    private int prix;
+	private String nom;
+	private String pate;
+	private String sauce;
+	private String garniture;
+	private int prix;
 
-    public Pizza() {}
-    
-    public PizzaBuilder creationBuilder() {
-    	return new PizzaBuilder();
-    }
+	public Pizza() {
+	}
 
-    public static class PizzaBuilder {
-        private String nom = "Non définit";
-        private String pate = "Non définit";
-        private String sauce = "Non définit";
-        private String garniture = "Non définit";
-        private int prix = 0;
+	public PizzaBuilder creationBuilder() {
+		return new PizzaBuilder();
+	}
 
-        public PizzaBuilder choisirNom(String nom) {
-            this.nom = nom;
-            return this;
-        }
+	public static class PizzaBuilder {
+		private String nom = "Non définit";
+		private String pate = "Non définit";
+		private String sauce = "Non définit";
+		private String garniture = "Non définit";
+		private int prix = 0;
 
-        public PizzaBuilder choisirPate(String pate) {
-            this.pate = pate;
-            return this;
-        }
+		public PizzaBuilder choisirNom(String nom) {
+			this.nom = nom;
+			return this;
+		}
 
-        public PizzaBuilder choisirSauce(String sauce) {
-            this.sauce = sauce;
-            return this;
-        }
+		public PizzaBuilder choisirPate(String pate) {
+			this.pate = pate;
+			return this;
+		}
 
-        public PizzaBuilder choisirGarniture(String garniture) {
-            this.garniture = garniture;
-            return this;
-        }
+		public PizzaBuilder choisirSauce(String sauce) {
+			this.sauce = sauce;
+			return this;
+		}
 
-        public PizzaBuilder choisirPrix(int prix) {
-            this.prix = prix;
-            return this;
-        }
+		public PizzaBuilder choisirGarniture(String garniture) {
+			this.garniture = garniture;
+			return this;
+		}
 
-        public Pizza build() {
-            Pizza pizza = new Pizza();
-            pizza.nom = nom;
-            pizza.pate = pate;
-            pizza.garniture = garniture;
-            pizza.sauce = sauce;
-            pizza.prix = prix;
-            return pizza;
-        }
-    }
+		public PizzaBuilder choisirPrix(int prix) {
+			this.prix = prix;
+			return this;
+		}
 
-    public void cuire() {
-        // Logique de cuisson
-    }
+		public Pizza build() throws IllegalArgumentException{
 
-    public void prepare() {
-        // Logique de préparation
-    }
+			if (nom == null || pate == null || sauce == null || garniture == null || prix <= 0) {
+				throw new IllegalArgumentException("Certains attributs obligatoires ne sont pas spécifiés ou le prix est négatif.");
+			}
 
-    public String getNom() {
-        return nom;
-    }
+			Pizza pizza = new Pizza();
+			pizza.nom = nom;
+			pizza.pate = pate;
+			pizza.garniture = garniture;
+			pizza.sauce = sauce;
+			pizza.prix = prix;
+			return pizza;
+		}
+	}
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
+	public void cuire() {
+		// Logique de cuisson
+	}
 
-    public String getPate() {
-        return pate;
-    }
+	public void prepare() {
+		// Logique de préparation
+	}
 
-    public void setPate(String pate) {
-        this.pate = pate;
-    }
+	public String getNom() {
+		return nom;
+	}
 
-    public String getSauce() {
-        return sauce;
-    }
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
 
-    public void setSauce(String sauce) {
-        this.sauce = sauce;
-    }
+	public String getPate() {
+		return pate;
+	}
 
-    public String getGarniture() {
-        return garniture;
-    }
+	public void setPate(String pate) {
+		this.pate = pate;
+	}
 
-    public void setGarniture(String garniture) {
-        this.garniture = garniture;
-    }
+	public String getSauce() {
+		return sauce;
+	}
 
-    public int getPrix() {
-        return prix;
-    }
+	public void setSauce(String sauce) {
+		this.sauce = sauce;
+	}
 
-    public void setPrix(int prix) {
-        this.prix = prix;
-    }
+	public String getGarniture() {
+		return garniture;
+	}
+
+	public void setGarniture(String garniture) {
+		this.garniture = garniture;
+	}
+
+	public int getPrix() {
+		return prix;
+	}
+
+	public void setPrix(int prix) {
+		this.prix = prix;
+	}
 }
