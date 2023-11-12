@@ -3,7 +3,12 @@ package com.practice.designpattern.pizza;
 public class PizzaVegetarienne extends Pizza implements PizzaInterface {
 
 	public PizzaVegetarienne() {
-		super("Vegetarienne", "Blé", "Tomate", "artichauds", 14);
+		PizzaBuilder builder = creationBuilder();
+		builder.choisirNom("Vegies")
+        .choisirPate("Blé")
+        .choisirSauce("Tomate")
+        .choisirGarniture("Tomates, Artichauds")
+        .choisirPrix(10);
 	}
 
 	public void prepare() {
