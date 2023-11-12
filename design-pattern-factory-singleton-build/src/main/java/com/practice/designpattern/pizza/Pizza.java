@@ -15,11 +15,11 @@ public class Pizza implements PizzaInterface {
     }
 
     public static class PizzaBuilder {
-        private String nom;
-        private String pate;
-        private String sauce;
-        private String garniture;
-        private int prix;
+        private String nom = "Non définit";
+        private String pate = "Non définit";
+        private String sauce = "Non définit";
+        private String garniture = "Non définit";
+        private int prix = 0;
 
         public PizzaBuilder choisirNom(String nom) {
             this.nom = nom;

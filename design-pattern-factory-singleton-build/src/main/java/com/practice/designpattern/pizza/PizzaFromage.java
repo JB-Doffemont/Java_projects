@@ -12,9 +12,9 @@ public class PizzaFromage extends Pizza implements PizzaInterface {
 	            .choisirSauce("Tomate")
 	            .choisirGarniture("Fromage")
 	            .choisirPrix(10);
-	    // Assurez-vous d'appeler build() pour construire réellement la pizza
+	    // On appelle build() pour construire réellement la pizza
 	    Pizza pizza = builder.build();
-	    // Copiez les attributs de la pizza construite vers l'objet courant
+	    // Copie des attributs de la pizza construite vers l'objet courant
 	    this.setNom(pizza.getNom());
 	    this.setPate(pizza.getPate());
 	    this.setSauce(pizza.getSauce());
@@ -22,11 +22,6 @@ public class PizzaFromage extends Pizza implements PizzaInterface {
 	    this.setPrix(pizza.getPrix());
 	}
 	
-//	@Override
-//	public String getNom() {
-//        return super.getNom();
-//    }
-
 	public void prepare() {
 		System.out.println("En cours de préparation");
 	}
