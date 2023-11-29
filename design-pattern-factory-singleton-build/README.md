@@ -48,8 +48,6 @@ Bonus : J'ai porté une attention particulière à la gestion des ressources et 
 - J'ai utilisé mon `PizzaBuilder` pour créer différentes pizzas avec différentes combinaisons de garnitures de manière ordonnée et claire.
  Ainsi, à la fin de cet exercice, je peux au choix construire des pizzas "toutes prêtes" grâce aux factories ou bien "sur mesure" via le builder.
 
-Consigne : Une fluent interface permet une chaîne de méthodes modifiant l'état de l'instance et retournant à chaque fois l'instance elle-même,
-facilitant des modifications en chaîne.
 
 ---
 
