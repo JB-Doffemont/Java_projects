@@ -27,7 +27,7 @@ public class FraisPortColissimoStrategy implements FraisPortStrategy {
      */
     @Override
     public double calculerFraisPort() {
-        List<Livre> livres = contexte.getLivres(livreRepository); // Assuming you have a method to get the books in the order
+        List<Livre> livres = contexte.getLivres(livreRepository); 
         double poidsTotal = calculerPoidsTotal(livres);
 
         if (poidsTotal <= 1.0) {
