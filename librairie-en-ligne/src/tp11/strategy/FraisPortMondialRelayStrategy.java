@@ -23,7 +23,7 @@ public class FraisPortMondialRelayStrategy implements FraisPortStrategy {
      */
     @Override
     public double calculerFraisPort() {
-        List<Livre> livres = contexte.getLivres(null); // Assuming you have a method to get the books in the order
+        List<Livre> livres = contexte.getLivres(null); 
         double poidsTotal = calculerPoidsTotal(livres);
 
         if (poidsTotal <= 3.0) {
