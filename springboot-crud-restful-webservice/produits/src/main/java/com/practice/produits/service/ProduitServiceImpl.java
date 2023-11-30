@@ -14,7 +14,7 @@ public class ProduitServiceImpl implements ProduitService {
 
 	@Autowired
 	ProduitRepository produitRepository;
-	
+
 	@Override
 	public Produit saveProduit(Produit p) {
 		return produitRepository.save(p);
@@ -27,7 +27,7 @@ public class ProduitServiceImpl implements ProduitService {
 
 	@Override
 	public void deleteProduit(Produit p) {
-		produitRepository.delete(p);	
+		produitRepository.delete(p);
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public class ProduitServiceImpl implements ProduitService {
 
 	@Override
 	public List<Produit> getAllProduits() {
-		
+
 		return produitRepository.findAll();
 	}
 
@@ -73,7 +73,7 @@ public class ProduitServiceImpl implements ProduitService {
 
 	@Override
 	public List<Produit> findByOrderByNomProduitAsc() {
-		
+
 		return produitRepository.findByOrderByNomProduitAsc();
 	}
 
