@@ -1,13 +1,13 @@
-package com.webservice.api;
+package com.practice.produits;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringbootCrudRestfulWebserviceApplication {
+public class ProduitsApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringbootCrudRestfulWebserviceApplication.class, args);
+		SpringApplication.run(ProduitsApplication.class, args);
 	}
 
 }

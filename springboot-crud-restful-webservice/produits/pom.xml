@@ -8,11 +8,11 @@
 		<version>3.1.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.webservice</groupId>
-	<artifactId>springboot-crud-restful-webservice</artifactId>
+	<groupId>com.practice</groupId>
+	<artifactId>produits</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>springboot-crud-restful-webservice</name>
-	<description>Api project for Spring Boot</description>
+	<name>produits</name>
+	<description>Projet for Spring Boot pour la gestion des produits</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -23,9 +23,15 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<artifactId>spring-boot-starter-web-services</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
 		<dependency>
 			<groupId>com.mysql</groupId>
 			<artifactId>mysql-connector-j</artifactId>
@@ -37,9 +43,8 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.hr</groupId>
-			<artifactId>HR_API</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
 		</dependency>
 	</dependencies>
 
@@ -48,6 +53,11 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<image>
+						<builder>paketobuildpacks/builder-jammy-base:latest</builder>
+					</image>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
