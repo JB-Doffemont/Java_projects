@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import com.practice.produits.model.Categorie;
 import com.practice.produits.model.Produit;
@@ -15,7 +16,7 @@ import com.practice.produits.model.Produit;
  * CRUD prêtes à l'emploi. Il est attendu que l'entité 'Produit' ait un
  * identifiant de type Long.
  */
-
+@RepositoryRestResource(path = "rest")
 public interface ProduitRepository extends JpaRepository<Produit, Long> {
 
 	List<Produit> findByNomProduit(String nom);
