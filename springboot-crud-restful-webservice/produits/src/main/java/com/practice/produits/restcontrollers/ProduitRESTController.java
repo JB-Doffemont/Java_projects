@@ -28,12 +28,12 @@ public class ProduitRESTController {
 	}
 
 	@PostMapping
-	public ProduitDTO createProduit(@RequestBody Produit produit) {
+	public ProduitDTO createProduit(@RequestBody ProduitDTO produit) {
 		return produitService.saveProduit(produit);
 	}
 
 	@PutMapping
-	public Produit updateProduit(@RequestBody Produit produit) {
+	public ProduitDTO updateProduit(@RequestBody ProduitDTO produit) {
 		return produitService.updateProduit(produit);
 	}
 

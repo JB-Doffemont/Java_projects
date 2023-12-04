@@ -7,12 +7,12 @@ import com.practice.produits.model.Categorie;
 import com.practice.produits.model.Produit;
 
 public interface ProduitService {
-	Produit updateProduit(Produit p);
 	void deleteProduit(Produit p);
 	void deleteProduitById(Long id);
 	
-	ProduitDTO saveProduit(Produit p);
+	ProduitDTO saveProduit(ProduitDTO p);
 	ProduitDTO getProduit(Long id);
+	ProduitDTO updateProduit(ProduitDTO p);
 	List<ProduitDTO> getAllProduits();
 	
 	List<Produit> findByNomProduit(String nom);
@@ -24,4 +24,5 @@ public interface ProduitService {
 	List<Produit> trierProduitsNomsPrix();
 	
 	ProduitDTO convertEntityToDto (Produit produit);
+	Produit convertDtoToEntity(ProduitDTO produitDto);
 }

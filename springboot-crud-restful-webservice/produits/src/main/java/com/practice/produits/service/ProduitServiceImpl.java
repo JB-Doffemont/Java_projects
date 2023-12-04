@@ -18,13 +18,13 @@ public class ProduitServiceImpl implements ProduitService {
 	ProduitRepository produitRepository;
 
 	@Override
-	public ProduitDTO saveProduit(Produit p) {
-		return convertEntityToDto(produitRepository.save(p));
+	public ProduitDTO saveProduit(ProduitDTO p) {
+		return convertEntityToDto(produitRepository.save(convertDtoToEntity(p)));
 	}
 
 	@Override
-	public Produit updateProduit(Produit p) {
-		return produitRepository.save(p);
+	public ProduitDTO updateProduit(ProduitDTO p) {
+		return convertEntityToDto(produitRepository.save(convertDtoToEntity(p)));
 	}
 
 	@Override
@@ -93,6 +93,17 @@ public class ProduitServiceImpl implements ProduitService {
 		return ProduitDTO.builder().idProduit(produit.getIdProduit()).nomProduit(produit.getNomProduit())
 				.prixProduit(produit.getPrixProduit()).dateCreation(produit.getDateCreation())
 				.categorie(produit.getCategorie()).build();
+	}
+
+	@Override
+	public Produit convertDtoToEntity(ProduitDTO produitDto) {
+		Produit produit = new Produit();
+		produit.setIdProduit(produitDto.getIdProduit());
+		produit.setNomProduit(produitDto.getNomProduit());
+		produit.setPrixProduit(produitDto.getPrixProduit());
+		produit.setDateCreation(produitDto.getDateCreation());
+		produit.setCategorie(produitDto.getCategorie());
+		return produit;
 	}
 
 }
