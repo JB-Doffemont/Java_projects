@@ -1,19 +1,21 @@
 package com.practice.produits;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 
 import com.practice.produits.model.Produit;
 
 @SpringBootApplication
-public class ProduitsApplication implements CommandLineRunner{
+public class ProduitsApplication implements CommandLineRunner {
 
 	@Autowired
 	private RepositoryRestConfiguration repositoryRestConfiguration;
-	
+
 	public static void main(String[] args) {
 		SpringApplication.run(ProduitsApplication.class, args);
 	}
@@ -23,4 +25,8 @@ public class ProduitsApplication implements CommandLineRunner{
 		repositoryRestConfiguration.exposeIdsFor(Produit.class);
 	}
 
+    @Bean
+    ModelMapper modelMapper() {
+		return new ModelMapper();
+	}
 }

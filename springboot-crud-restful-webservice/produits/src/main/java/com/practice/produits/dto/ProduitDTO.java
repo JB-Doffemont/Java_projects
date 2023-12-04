@@ -4,7 +4,7 @@ import java.util.Date;
 
 import com.practice.produits.model.Categorie;
 
-import jakarta.persistence.ManyToOne;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,7 +20,8 @@ public class ProduitDTO {
 	private String nomProduit;
 	private Double prixProduit;
 	private Date dateCreation;
+	private String nomCat;
 	
-	@ManyToOne 
+	 
 	private Categorie categorie;
 }

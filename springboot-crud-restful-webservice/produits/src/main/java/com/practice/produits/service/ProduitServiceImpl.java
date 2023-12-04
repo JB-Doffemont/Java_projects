@@ -3,6 +3,8 @@ package com.practice.produits.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,9 @@ public class ProduitServiceImpl implements ProduitService {
 
 	@Autowired
 	ProduitRepository produitRepository;
+
+	@Autowired
+	ModelMapper modelMapper;
 
 	@Override
 	public ProduitDTO saveProduit(ProduitDTO p) {
@@ -89,20 +94,15 @@ public class ProduitServiceImpl implements ProduitService {
 
 	@Override
 	public ProduitDTO convertEntityToDto(Produit produit) {
-
-		return ProduitDTO.builder().idProduit(produit.getIdProduit()).nomProduit(produit.getNomProduit())
-				.prixProduit(produit.getPrixProduit()).dateCreation(produit.getDateCreation())
-				.categorie(produit.getCategorie()).build();
+		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
+		ProduitDTO produitDTO = modelMapper.map(produit, ProduitDTO.class);
+		return produitDTO;
 	}
 
 	@Override
 	public Produit convertDtoToEntity(ProduitDTO produitDto) {
 		Produit produit = new Produit();
-		produit.setIdProduit(produitDto.getIdProduit());
-		produit.setNomProduit(produitDto.getNomProduit());
-		produit.setPrixProduit(produitDto.getPrixProduit());
-		produit.setDateCreation(produitDto.getDateCreation());
-		produit.setCategorie(produitDto.getCategorie());
+		produit = modelMapper.map(produitDto, Produit.class);
 		return produit;
 	}
 
