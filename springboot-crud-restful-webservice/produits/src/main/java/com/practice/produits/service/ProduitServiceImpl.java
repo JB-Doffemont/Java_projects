@@ -1,10 +1,12 @@
 package com.practice.produits.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.practice.produits.dto.ProduitDTO;
 import com.practice.produits.model.Categorie;
 import com.practice.produits.model.Produit;
 import com.practice.produits.repository.ProduitRepository;
@@ -16,8 +18,8 @@ public class ProduitServiceImpl implements ProduitService {
 	ProduitRepository produitRepository;
 
 	@Override
-	public Produit saveProduit(Produit p) {
-		return produitRepository.save(p);
+	public ProduitDTO saveProduit(Produit p) {
+		return convertEntityToDto(produitRepository.save(p));
 	}
 
 	@Override
@@ -36,14 +38,17 @@ public class ProduitServiceImpl implements ProduitService {
 	}
 
 	@Override
-	public Produit getProduit(Long id) {
-		return produitRepository.findById(id).get();
+	public ProduitDTO getProduit(Long id) {
+		return convertEntityToDto(produitRepository.findById(id).get());
 	}
 
 	@Override
-	public List<Produit> getAllProduits() {
-
-		return produitRepository.findAll();
+	public List<ProduitDTO> getAllProduits() {
+		List<Produit> prods = produitRepository.findAll();
+		List<ProduitDTO> listProdDto = new ArrayList<>(prods.size());
+		for (Produit p : prods)
+			listProdDto.add(convertEntityToDto(p));
+		return listProdDto;
 	}
 
 	@Override
@@ -80,6 +85,14 @@ public class ProduitServiceImpl implements ProduitService {
 	@Override
 	public List<Produit> trierProduitsNomsPrix() {
 		return produitRepository.trierProduitsNomsPrix();
+	}
+
+	@Override
+	public ProduitDTO convertEntityToDto(Produit produit) {
+
+		return ProduitDTO.builder().idProduit(produit.getIdProduit()).nomProduit(produit.getNomProduit())
+				.prixProduit(produit.getPrixProduit()).dateCreation(produit.getDateCreation())
+				.categorie(produit.getCategorie()).build();
 	}
 
 }

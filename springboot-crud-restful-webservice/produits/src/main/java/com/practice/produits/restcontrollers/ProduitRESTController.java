@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import com.practice.produits.dto.ProduitDTO;
 import com.practice.produits.model.Produit;
 import com.practice.produits.service.ProduitService;
 
@@ -16,17 +18,17 @@ public class ProduitRESTController {
 	ProduitService produitService;
 
 	@GetMapping
-	public List<Produit> getAllProduits() {
+	public List<ProduitDTO> getAllProduits() {
 		return produitService.getAllProduits();
 	}
 
 	@GetMapping("/{id}")
-	public Produit getProduitById(@PathVariable("id") Long id) {
+	public ProduitDTO getProduitById(@PathVariable("id") Long id) {
 		return produitService.getProduit(id);
 	}
 
 	@PostMapping
-	public Produit createProduit(@RequestBody Produit produit) {
+	public ProduitDTO createProduit(@RequestBody Produit produit) {
 		return produitService.saveProduit(produit);
 	}
 
